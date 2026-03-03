@@ -5,9 +5,9 @@ An R package for programmatic access to archived County Health Rankings & Roadma
 [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/grand-total/countyhealthR)](https://cran.r-project.org/package=countyhealthR)
 
 The current version of **countyhealthR** includes four functions to interact with CHR&R data:
-1.  **list_chrr_measures**: see all the measures that are available for a selected release year.\
-2.  **get_chrr_measure_data**: download all data for a selected measure of health.\
-3.  **get_chrr_county_data**: download all measures for a selected geographic area.\
+1.  **list_chrr_measures**: see all the measures that are available for a selected release year.
+2.  **get_chrr_measure_data**: download all data for a selected measure of health.
+3.  **get_chrr_county_data**: download all measures for a selected geographic area.
 4.  **get_chrr_measure_metadata**: access additional details about a selected measure, such as the measure's position within the [UWPHI Model of Health](https://www.countyhealthrankings.org/resources/2025-uwphi-model-of-health)
 
 You can learn more about each function and its arguments by checking out the [reference manual](https://cran.r-project.org/web/packages/countyhealthR/countyhealthR.pdf).
