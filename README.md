@@ -18,11 +18,7 @@ install.packages("countyhealthR")
 ### Install the development version (GitHub) 
 ```r
 # install.packages("devtools") # if needed 
-devtools::install_github("County-Health-Rankings-and-Roadmaps/countyhealthR")
-library(countyhealthR)
-
-# Example: load county-level premature death data for release year 2024
-get_chrr_measure_data("county", "premature death", 2024)
+devtools::install_github("countyhealthrankings/countyhealthR")
 ``` 
 
 ## Quick Start 
