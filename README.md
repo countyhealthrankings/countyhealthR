@@ -29,6 +29,6 @@ library(countyhealthR)
 get_chrr_measure_data(
   geography = "county",
   measure = "premature death",
-  year = 2024
+  release_year = 2024
 )
 ``` 
