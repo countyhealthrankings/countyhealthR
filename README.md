@@ -1,9 +1,10 @@
 # countyhealthR
 an R package to quickly pull CHR&amp;R data into R, modeled after tidycensus
 
-NOTE: this package is currently under development and has not yet been fully tested.
+[![CRAN Version](https://www.r-pkg.org/badges/version/countyhealhtR)](https://cran.r-project.org/package=countyhealthR)
+[![CRAN Downloads](https://cranlogs.r-pkg.org/badges/grand-total/countyhealthR)](https://cran.r-project.org/package=countyhealthR)
 
-Run the following R code to quickly install and load `countyhealthR` into your local environment: 
+To use the development version (ie from GitHub) run the following R code to quickly install and load `countyhealthR` into your local environment: 
 ```r
 # Quick Start 
 library(devtools)
