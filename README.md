@@ -1,16 +1,38 @@
 # countyhealthR
-an R package to quickly pull CHR&amp;R data into R, modeled after tidycensus
+An R package for programmatic access to archived County Health Rankings & Roadmaps (CHR&R) data, modeled after the simplicity of the `tidycensus` package.
 
-[![CRAN Version](https://www.r-pkg.org/badges/version/countyhealhtR)](https://cran.r-project.org/package=countyhealthR)
+[![CRAN Version](https://www.r-pkg.org/badges/version/countyhealthR)](https://cran.r-project.org/package=countyhealthR)
 [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/grand-total/countyhealthR)](https://cran.r-project.org/package=countyhealthR)
 
-To use the development version (ie from GitHub) run the following R code to quickly install and load `countyhealthR` into your local environment: 
+### Reference Manual: https://cran.r-project.org/web/packages/countyhealthR/countyhealthR.pdf 
+---
+
+## Install
+
+### Install the stable CRAN version
+
 ```r
-# Quick Start 
-library(devtools)
+install.packages("countyhealthR")
+```
+
+### Install the development version (GitHub) 
+```r
+# install.packages("devtools") # if needed 
 devtools::install_github("County-Health-Rankings-and-Roadmaps/countyhealthR")
 library(countyhealthR)
 
 # Example: load county-level premature death data for release year 2024
 get_chrr_measure_data("county", "premature death", 2024)
+``` 
+
+## Quick Start 
+```r
+library(countyhealthR)
+
+# Example: Load county-level premature death data for the 2024 release
+get_chrr_measure_data(
+  geography = "county",
+  measure = "premature death",
+  year = 2024
+)
 ``` 
