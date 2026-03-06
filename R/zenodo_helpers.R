@@ -18,7 +18,6 @@ zenodo_year_records <- c(
   "2025" = "18332002"
 )
 
-most_recent = max(as.integer(names(zenodo_year_records)))
 
 .check_internet <- function() {
   if (!curl::has_internet()) {
@@ -28,6 +27,24 @@ most_recent = max(as.integer(names(zenodo_year_records)))
       call. = FALSE
     )
   }
+}
+
+
+# function for CRAN safe cache
+countyhealthR_cache_dir <- function() {
+
+  if (identical(Sys.getenv("NOT_CRAN"), "true")) {
+    cache_dir <- file.path(
+      path.expand("~"),
+      ".cache",
+      "countyhealthR_data"
+    )
+  } else {
+    cache_dir <- tempdir()
+  }
+
+  dir.create(cache_dir, recursive = TRUE, showWarnings = FALSE)
+  cache_dir
 }
 
 
@@ -65,11 +82,9 @@ read_csv_zenodo <- function(
     required_cols = NULL
 ) {
 
-  cache_dir <- file.path(
-    rappdirs::user_cache_dir("countyhealthR_data"),
-    "Cache"
-  )
-  dir.create(cache_dir, recursive = TRUE, showWarnings = FALSE)
+  .check_internet()
+
+  cache_dir = countyhealthR_cache_dir()
 
   if (!is.null(year)) {
     year <- as.character(year)
@@ -157,13 +172,8 @@ prepare_zenodo_data <- function(release_year, refresh = FALSE) {
 
   release_year <- as.character(release_year)
 
-  cache_dir <- file.path(
-    rappdirs::user_cache_dir("countyhealthR_data"),
-    "Cache"
-  )
-  dir.create(cache_dir, recursive = TRUE, showWarnings = FALSE)
-
-  year_dir <- file.path(cache_dir, release_year)
+  cache_dir = countyhealthR_cache_dir()
+  year_dir <- file.path(cache_dir, "Cache", release_year)
 
   # Handle refresh
   if (refresh && dir.exists(year_dir)) {
@@ -171,7 +181,7 @@ prepare_zenodo_data <- function(release_year, refresh = FALSE) {
     unlink(year_dir, recursive = TRUE)
   }
 
-  dir.create(year_dir, showWarnings = FALSE)
+  dir.create(year_dir, recursive = TRUE, showWarnings = FALSE)
 
   # Resolve Zenodo record (pinned or evolving)
   record_id <- zenodo_year_records[[release_year]]
