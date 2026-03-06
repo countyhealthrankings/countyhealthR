@@ -1,23 +1,19 @@
 ## Resubmission
 
-This is a resubmission of countyhealthR 0.1.3 (previously 0.1.2).
+This is a resubmission. The following changes were made in response to CRAN feedback:
 
-Changes made in response to CRAN feedback:
-
--   Removed countyhealthR_reset_cache.Rd, which had a missing \value tag and was unnecessary.
-
--   All data-download functions are now wrapped in \donttest{} to avoid running long examples automatically.
-
--   Added *citation* and *verbose* parameters to allow users to suppress printed messages
-
--   Reconfigured get_chrr_measure_metadata() to avoid writing or printing to the user’s environment.
-
--   Updated Rd documentation for all exported functions to include a \value{} tag explaining the structure (class) and meaning of the returned objects.
-
--   Ensured that no function writes by default to the user’s home directory, working directory, or package directory
+* Examples that download data from Zenodo are wrapped in `\donttest{}` as recommended.
+* A CRAN-safe caching mechanism was implemented so that during checks data are written only to `tempdir()`, while users can optionally cache data locally outside of CRAN environments.
 
 ## R CMD check results
 
-0 errors \| 0 warnings \| 1 note
+0 errors | 0 warnings | 1 note
 
--   This is a new release.
+* checking for future file timestamps ... NOTE
+  unable to verify current time
+
+This NOTE is a known harmless issue related to time verification on some systems and does not affect package functionality.
+
+## Downstream dependencies
+
+None.

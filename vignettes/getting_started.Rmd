@@ -6,7 +6,7 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-
+# Getting started with countyhealthR 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -62,3 +62,5 @@ meta_data <- get_chrr_measure_metadata(
 head(meta_data)
 
 ```
+# Note: 
+All functions are build to interact with Zenodo and therefore require internet access. As a result, examples are wrapped in `\donttest{}` so that CRAN checks do not depend on external network access.
