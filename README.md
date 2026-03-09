@@ -3,6 +3,7 @@ An R package for programmatic access to archived County Health Rankings & Roadma
 
 [![CRAN Version](https://www.r-pkg.org/badges/version/countyhealthR)](https://cran.r-project.org/package=countyhealthR)
 [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/grand-total/countyhealthR)](https://cran.r-project.org/package=countyhealthR)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://countyhealthrankings.github.io/welcome/contribute.html#countyhealthr-package)
 
 The current version of **countyhealthR** includes four functions to interact with CHR&R data:
 1.  **list_chrr_measures**: see all the measures that are available for a selected release year.
