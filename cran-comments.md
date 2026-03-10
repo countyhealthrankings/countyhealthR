@@ -1,9 +1,12 @@
 ## Resubmission
 
-This is a resubmission. The following changes were made in response to CRAN feedback:
+This resubmission addresses a NOTE raised by CRAN's incoming checks
+indicating that more than two CPU cores were used during examples.
 
-* Examples that download data from Zenodo are wrapped in `\donttest{}` as recommended.
-* A CRAN-safe caching mechanism was implemented so that during checks data are written only to `tempdir()`, while users can optionally cache data locally outside of CRAN environments.
+The cause was multithreaded parsing in readr when reading CSV files.  
+`read_csv_zenodo()` now explicitly sets `num_threads = 1` to ensure single-threaded execution.
+
+All examples that require internet access are wrapped in `\donttest{}` to comply with CRAN policies.
 
 ## R CMD check results
 

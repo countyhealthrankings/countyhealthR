@@ -18,6 +18,7 @@ zenodo_year_records <- c(
   "2025" = "18332002"
 )
 
+Sys.setenv(VROOM_THREADS = 1)
 
 .check_internet <- function() {
   if (!curl::has_internet()) {
@@ -121,7 +122,10 @@ read_csv_zenodo <- function(
   # Attempt to read
   dat <- tryCatch(
     {
-      readr::read_csv(file_path, show_col_types = FALSE, progress = FALSE)
+      readr::read_csv(file_path,
+                      show_col_types = FALSE,
+                      progress = FALSE,
+                      num_threads = 1)
     },
     error = function(e) {
       message("Failed to read ", filename, ". Removing cached file.")
@@ -147,7 +151,8 @@ read_csv_zenodo <- function(
       dat <- readr::read_csv(
         file_path,
         show_col_types = FALSE,
-        progress = FALSE
+        progress = FALSE,
+        num_threads = 1
       )
 
       missing <- setdiff(required_cols, names(dat))
